@@ -13,6 +13,9 @@ namespace Laboratotio6
     public partial class Form1 : Form
     {
         private Maestro maestro = new Maestro();
+        int nueva = 0;
+        
+
 
         public Form1()
         {
@@ -32,9 +35,10 @@ namespace Laboratotio6
             if ( maestro.RegistrarVehiculo(v) )
             {
                 maestro.Guardar();
-            } else
+            }
+            else
             {
-                MessageBox.Show(this, "¡Vehículo existente!");
+                MessageBox.Show(this, "¡Vehículo existente...!");
             }
         }
 
@@ -78,11 +82,12 @@ namespace Laboratotio6
             }
 
             dataGridViewAlquileres.DataSource = reportes;
-            labelKm.Text = "[ NIT: " + id + " , Km: " + mayorKm + " ]";
+            labelKm.Text = "[ NIT: " + id + " , K/m: " + mayorKm + " ]";
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Cambios
             maestro.Cargar();
 
             dataGridViewClientes.DataSource = maestro.Clientes;
